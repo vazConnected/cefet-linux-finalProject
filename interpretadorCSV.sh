@@ -4,7 +4,7 @@ if [ $# -eq 0 ]; then
     exit 1
 else
     if [[ -f "$1" ]]; then
-        echo -ne "Lendo agenda $1\n"
+        echo -ne "Lendo agenda $1\n\n"
     else
         echo -ne "Erro. O arquivo passado por parametro nao existe.\n"
         exit 1
@@ -25,10 +25,14 @@ while [[ menu -ne 0 ]]; do
 
     case $menu in
 	1)
-		echo -ne "\nRealizando busca por nome:\n\n"
+		echo -ne "\nRealizando busca por nome: "
+    read nome
+    grep -i ${nome} $1 | awk -F "," '{print "Nome: " $1 "\nTelefone: " $2 "\nEmail: " $3 "\nAniversário: " $4 "\n\n"}' 
 		;;
 	2)
-		echo -ne "\nRealizando busca por email:\n\n"
+		echo -ne "\nRealizando busca por email: "
+    read email
+    grep -i ${email} $1 | awk -F "," '{print "Nome: " $1 "\nTelefone: " $2 "\nEmail: " $3 "\nAniversário: " $4 "\n\n"}' 
 		;;
     3)
 		echo -ne "\nRealizando agrupamento por DDD:\n\n"
