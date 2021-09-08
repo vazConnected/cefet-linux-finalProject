@@ -4,7 +4,7 @@ BEGIN {
 }
 
 {
-    if ($3 == email){
+    if ($3 ~ email){
         print "\tNome: " $1 "\n\tTelefone: " $2 "\n\tEmail: " $3 "\n\tAniversário: " $4 "\n";
         contadorMatch++;
     }

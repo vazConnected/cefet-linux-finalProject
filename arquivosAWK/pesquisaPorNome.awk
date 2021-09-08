@@ -4,7 +4,7 @@ BEGIN {
 }
 
 {
-    if ($1 == nome){
+    if ($1 ~ nome){
         print "\tNome: " $1 "\n\tTelefone: " $2 "\n\tEmail: " $3 "\n\tAniversário: " $4 "\n";
         contadorMatch++;
     }
