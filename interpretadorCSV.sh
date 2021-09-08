@@ -26,22 +26,27 @@ while [[ menu -ne 0 ]]; do
 	case $menu in
 	1)
 		echo -ne "\nRealizando busca por nome: "
-	read nome
-	grep -i "${nome}" $1 | awk -F "," '{print "Nome: " $1 "\nTelefone: " $2 "\nEmail: " $3 "\nAniversário: " $4 "\n\n"}' 
+		read nome
+		awk -v nome="$nome" -f arquivosAWK/pesquisaPorNome.awk $1
 		;;
 	2)
 		echo -ne "\nRealizando busca por email: "
-	read email
-	grep -i "${email}" $1 | awk -F "," '{print "Nome: " $1 "\nTelefone: " $2 "\nEmail: " $3 "\nAniversário: " $4 "\n\n"}' 
+		read email
+		awk -v email="$email" -f arquivosAWK/pesquisaPorEmail.awk $1
 		;;
 	3)
-		echo -ne "\nRealizando agrupamento por DDD:\n\n"
+		echo -ne "\nRealizando agrupamento por DDD: "
+		read DDD
+		awk -v ddd="$DDD" -f arquivosAWK/agrupamentoDDD.awk $1
 		;;
 	4)
-		echo -ne "\nRealizando agrupamento mensal de aniversários:\n\n"
+		echo -ne "\nRealizando agrupamento mensal de aniversários: "
+		read mesAniversario
+		awk -v mesAniversario="$mesAniversario" -f arquivosAWK/agrupamentoAniversario.awk $1
 		;;
 	0)
 		echo -ne "\nFim do programa.\n"
+		exit 0
 		;;
 	*)
 		echo -ne "\nEntrada inválida. Tente novamente.\n\n"
