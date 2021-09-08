@@ -19,6 +19,7 @@ while [[ menu -ne 0 ]]; do
 	echo -ne "\n2 - Buscar por email;"
 	echo -ne "\n3 - Agrupar por DDD;"
 	echo -ne "\n4 - Agrupar por mês de aniversario;"
+	echo -ne "\n5 - Exibir agenda por completo;"
 	echo -ne "\n0 - Sair.\nOpção de entrada: "
 
 	read menu;
@@ -43,6 +44,10 @@ while [[ menu -ne 0 ]]; do
 		echo -ne "\nRealizando agrupamento mensal de aniversários: "
 		read mesAniversario
 		awk -v mesAniversario="$mesAniversario" -f arquivosAWK/agrupamentoAniversario.awk $1
+		;;
+	5)
+		echo -ne "\nExibição completa da agenda: "
+		awk -f arquivosAWK/agendaCompleta.awk $1
 		;;
 	0)
 		echo -ne "\nFim do programa.\n"

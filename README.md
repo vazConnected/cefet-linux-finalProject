@@ -5,7 +5,8 @@ O objetivo desse projeto é criar um interpretador de agenda em CSV, de modo a p
 - Pesquisa por nome;
 - Pesquisa por email;
 - Agrupamento por DDD;
-- Agrupamento por mês de aniversario.
+- Agrupamento por mês de aniversario;
+- Exibição completa da agenda.
 
 ### Campos do CSV
 Para que o CSV seja interpretado pelo software, é necessário que tenha os seguintes campos:
