@@ -13,7 +13,7 @@ fi
 
 # Menu de interacao
 declare -i menu=1
-while [[ menu -ne 0 ]]; do
+while [[ $menu -ne 0 ]]; do
 	echo -ne "**** Menu ****"
 	echo -ne "\n1 - Buscar por nome;"
 	echo -ne "\n2 - Buscar por email;"
@@ -51,7 +51,6 @@ while [[ menu -ne 0 ]]; do
 		;;
 	0)
 		echo -ne "\nFim do programa.\n"
-		exit 0
 		;;
 	*)
 		echo -ne "\nEntrada inválida. Tente novamente.\n\n"
@@ -59,3 +58,5 @@ while [[ menu -ne 0 ]]; do
   esac
 
 done
+
+exit 0
