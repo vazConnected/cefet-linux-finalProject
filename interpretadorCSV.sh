@@ -1,6 +1,6 @@
 # Verifica parametro com .csv da agenda
 if [ $# -eq 0 ]; then
-	echo -ne "\nErro. Nenhum arquivo vou passado por parametro.\n"
+	echo -ne "\nErro. Nenhum arquivo foi passado por parametro.\n"
 	exit 1
 else
 	if [[ -f "$1" ]]; then
